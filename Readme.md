@@ -21,7 +21,7 @@
 
 ### 👓 Watch this video(Programming code included)
 
-> Processing Array Contents Lab 7-5. (3 mins)
+> [Processing Array Contents Lab 7-5. (3 mins)](https://youtu.be/lyrttIL31L8)
 
 ## You can test your program by typing the command
 
