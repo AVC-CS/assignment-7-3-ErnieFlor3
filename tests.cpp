@@ -3,84 +3,26 @@
 #include "catch.hpp"
 #include "main.hpp"
 // tests for exercise 1
-TEST_CASE("Ex1 makearray()", "[example]")
+TEST_CASE("Ex1 shiftlef()", "[example]")
 {
-	const int SIZE = 100;
-	int numbers[SIZE], org[SIZE];
-	int cnt, result;
-	result = 1;
-	cnt = makearray(numbers);
-	printout(numbers, cnt);
-	for (int i = 0; i < cnt; i++)
-		org[i] = numbers[i];
-	swapfold(numbers, cnt);
-	printout(numbers, cnt);
-	for (int i = 0; i < ceil(cnt / 2); i++)
+	const int SIZE = 10;
+	int numbers[SIZE] = {10, 11, 12, 13, 14, 15, 16, 17, 18, 19};
+	int N = 5;
+	int result = 1, idx = 0;
+	shiftleft(numbers, SIZE, N);
+	cout << numbers[N] << endl;
+	for (int i = 0; i < N; i++)
 	{
-		if (org[i] != numbers[cnt - i - 1])
+		if (numbers[i] != (10 + N + i))
 		{
 			result = 0;
+			idx = i;
 			break;
 		}
 	}
-	INFO("swapfold() function does not have the reverse order of the original array \n");
+
+	INFO("shiftleft() function does not have the reverse order of the original array " << numbers[idx]);
 	REQUIRE(result == 1);
 	cout << "****************************************\n";
 }
 // tests for exercise 2
-
-TEST_CASE("Ex2 sumfold()", "[example]")
-{
-	const int SIZE = 100;
-	int numbers[SIZE], org[SIZE];
-	int cnt, result;
-	result = 1;
-	cnt = makearray(numbers);
-	printout(numbers, cnt);
-	for (int i = 0; i < cnt; i++)
-		org[i] = numbers[i];
-	sumfold(numbers, cnt);
-	printout(numbers, ceil(cnt / 2));
-	for (int i = 0; i < ceil(cnt / 2); i++)
-	{
-		int tmp = org[i] + org[cnt - i - 1];
-		if (tmp != numbers[i])
-		{
-			result = 0;
-			break;
-		}
-	}
-	INFO("sumfold() function does not have the reverse order of the original array \n");
-	REQUIRE(result == 1);
-	cout << "****************************************\n";
-}
-
-TEST_CASE("Ex3 equalfold()", "[example]")
-{
-	const int SIZE = 100;
-	int numbers[SIZE], org[SIZE], equal[SIZE];
-	int cnt, result;
-	result = 1;
-	cnt = makearray(numbers);
-	printout(numbers, cnt);
-	for (int i = 0; i < cnt; i++)
-		org[i] = numbers[i];
-	equalfold(numbers, equal, cnt);
-	printout(equal, ceil(cnt / 2));
-	for (int i = 0; i < cnt / 2; i++)
-	{
-		if (equal[i] == 1)
-		{
-			if (numbers[i] != numbers[cnt - i - 1])
-				result = 0;
-		}
-		else
-		{
-			if (numbers[i] == numbers[cnt - i - 1])
-				result = 0;
-		}
-	}
-	INFO("equalfold() function generates the wrong comparisons\n");
-	REQUIRE(result == 1);
-	cout << "****************************************\n";
-}

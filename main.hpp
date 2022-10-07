@@ -1,44 +1,32 @@
+// Circular N left rotation in Arrays
+// [1,2,3,4,5] and we want to make 3 left rotation => Result is [4,5,1,2,3]
+// [10,13,5,7,2] and we want to make 1 left rotation => Result is [13,5,7,2,10]
+// Do not use the additional array. In-place swapping.
+
 #include <iostream>
-#include <ctime>
-#include <cstdlib>
-#include <cmath>
 #include <iomanip>
 using namespace std;
 
-int makearray(int[]);
+void shiftleft(int[], int, int);
+void shiftleftone(int[], int);
 void printout(int[], int);
 
-void swapfold(int[], int);
-void sumfold(int[], int);
-void equalfold(int[], int[], int);
-const int SIZE = 100;
-
-void swapfold(int number[], int last)
+void shiftleft(int number[], int SIZE, int count)
 {
+	for (int i = 0; i < count; i++)
+		shiftleftone(number, SIZE);
 }
-void sumfold(int number[], int last)
+void shiftleftone(int number[], int SIZE)
 {
+	int tmp = number[0];
+	for (int i = 0; i < SIZE - 1; i++)
+		number[i] = number[i + 1];
+	number[SIZE - 1] = tmp;
 }
-void equalfold(int number[], int equal[], int last)
+void printout(int number[], int SIZE)
 {
-}
-
-int makearray(int number[])
-{
-	int last;
-	srand(time(NULL));
-	do
-	{
-		last = rand() % 20;
-	} while (last < 10);
-
-	for (int i = 0; i < last; i++)
-		number[i] = rand() % 10;
-	return last;
-}
-void printout(int number[], int last)
-{
-	for (int i = 0; i < last; i++)
+	for (int i = 0; i < SIZE; i++)
 		cout << setw(5) << number[i];
 	cout << endl;
+	return;
 }
