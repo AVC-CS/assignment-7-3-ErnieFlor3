@@ -7,7 +7,7 @@
 
 ### Open the "main.hpp"
 
-> Complete overloading functions
+> Complete functions
 
 ### Goal of this lab
 
