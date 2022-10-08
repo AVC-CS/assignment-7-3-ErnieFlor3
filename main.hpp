@@ -13,15 +13,11 @@ void printout(int[], int);
 
 void shiftleft(int number[], int SIZE, int count)
 {
-	for (int i = 0; i < count; i++)
-		shiftleftone(number, SIZE);
+	
 }
 void shiftleftone(int number[], int SIZE)
 {
-	int tmp = number[0];
-	for (int i = 0; i < SIZE - 1; i++)
-		number[i] = number[i + 1];
-	number[SIZE - 1] = tmp;
+	
 }
 void printout(int number[], int SIZE)
 {
