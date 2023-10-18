@@ -8,16 +8,10 @@
 using namespace std;
 
 void shiftleft(int[], int, int);
-void shiftleftone(int[], int);
 void printout(int[], int);
 
 void shiftleft(int number[], int SIZE, int count)
 {
-	
-}
-void shiftleftone(int number[], int SIZE)
-{
-	
 }
 void printout(int number[], int SIZE)
 {
