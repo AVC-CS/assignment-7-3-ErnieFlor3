@@ -8,11 +8,23 @@
 using namespace std;
 
 void shiftleft(int[], int, int);
+void shiftone(int[], int);
 void printout(int[], int);
 
-void shiftleft(int number[], int SIZE, int count)
+void shiftone(int number[], int SIZE)
 {
+	int tmp = number[0];
+	for(int i=1; i<SIZE; i++) {
+		number[i-1] = number[i];
+	}
+	number[SIZE-1] = tmp;
 }
+void shiftLeft(int number[], int SIZE, int count)
+{
+	for(int k=0; k<count; k++)
+		shiftone(number, SIZE);
+}
+
 void printout(int number[], int SIZE)
 {
 	for (int i = 0; i < SIZE; i++)
